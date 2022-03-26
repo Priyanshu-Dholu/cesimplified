@@ -6,7 +6,16 @@
   font-family: "Jura", sans-serif;
   align-items: center;
 }
-
+#middle-title-2{
+  display: flex;
+  font-size: 34px;
+  margin: 00px 0px;
+  justify-content: center;
+  font-family: "Jura", sans-serif;
+  align-items: center;
+  background-color: #3b3086;
+  color: white;
+}
 /*  */
 
 .topic-list {
@@ -17,10 +26,23 @@
 .topic-list a {
   color: black;
   transition: 0.2s;
+  text-decoration:none;
 }
 .topic-list a:hover {
   color: #3b3086;
 }
+
+#myDIV{
+  /* background-color: antiquewhite; */
+  /* width: fit-content; */
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+}
+
 
 .video-container {
   float: left;
@@ -30,6 +52,7 @@
 
 .video-container iframe {
   transition: 0.25s linear;
+  border-radius: 5px;
 }
 
 .video-container iframe:hover {

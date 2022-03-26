@@ -4,11 +4,11 @@ import urllib.parse as urlparse
 from pytube import YouTube, Playlist
 from werkzeug.security import generate_password_hash
 
-con = sqlite3.connect('website/database.db')
+con = sqlite3.connect('D:\MEGA\Priyanshu\Programming\Git\cesimplified\website\database.db')
 
 cur = con.cursor()
 
-CLEAR = 'cls'
+CLEAR = 'clear'
 
 def get_yt_video_id(url):
     if len(url) > 11:
@@ -97,7 +97,7 @@ Custom Query
 while True:
     os.system(CLEAR)
 
-    print(''' 
+    print('''
     [ 1 ]  Display Any Table
     [ 2 ]  Insert | Add New Entry
     [ 3 ]  Modify
@@ -152,11 +152,11 @@ while True:
                 title = input("Title: ")
                 course_id = int(input("Course id: "))
                 cur.execute(f"INSERT INTO TOPIC(TITLE,COURSE_ID) VALUES('{title}', {course_id});")
-                display_row(cur, 'topic', f"Title = {title}")
+                display_row(cur, 'topic', f"Title = '{title}'")
                 commit_changes(cur)
 
             elif c_input == '3':
-                topic_id = int(input("Topic id: ")) 
+                topic_id = int(input("Topic id: "))
                 print('[ 1 ] Videos Links [ 2 ] Playlist link')
                 vp = input(':')
                 if vp == '1':
@@ -235,9 +235,9 @@ while True:
                 if new_link != '':
                     add_comma()
                     new_vid = get_yt_video_id(new_link)
-                    
+
                     Query += f" vid = '{new_vid}'"
-                
+
                 if new_title != '':
                     add_comma()
                     Query += f" title = '{new_title}'"
@@ -245,17 +245,17 @@ while True:
                     add_comma()
                     new_title_ = get_yt_video_title(new_link)
                     Query += f" title = '{new_title_}'"
-                
+
                 if new_vtype != '':
                     add_comma()
                     Query += f" vtype = '{new_vtype}'"
-                
+
                 if new_topic != '':
                     add_comma()
                     Query += f" topic_id = {new_topic}"
 
                 Query += f" WHERE vid = '{old_vid}';"
-                
+
                 print(Query)
                 cur.execute(Query)
                 display_row(cur, 'videos', f"vid = '{new_vid}'")

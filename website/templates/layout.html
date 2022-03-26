@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
   <body>
     <nav>
@@ -20,7 +21,16 @@
            <li><a href="/course">Course</a></li>
            <li><a href="/logout">Logout</a></li>
            <li><a href="#">New Account</a></li>
+           <div class="select">
+            <span class="fas fa-palette"></span>
+            <select class="select__input" id="selTheme">
+                <option value="auto">Auto</option>
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+            </select>
+          </div>
         </div>
+        
         <div class="search-icon">
            <span class="fas fa-search"></span>
         </div>

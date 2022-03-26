@@ -3,7 +3,7 @@
 
 
 import sqlite3
-con = sqlite3.connect('website/database.db')
+con = sqlite3.connect('D:\MEGA\Priyanshu\Programming\Git\cesimplified\website\database.db')
 
 cur = con.cursor()
 
@@ -53,6 +53,8 @@ CREATE TABLE videos (
 );
 '''
 )
+
+
 
 # for row in cur.execute('SELECT * FROM stocks ORDER BY price'):
 #     print(row)

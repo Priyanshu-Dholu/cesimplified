@@ -9,17 +9,74 @@
 {% block body %}
 
    <h1 id="middle-title">{{ topic.title }}</h1>
-   {% for video in videos %}
-      <p align="center" class="topic-list"><a href="#{{ video.vid }}">{{ video.title }}</a></p>
-   {% endfor %}
+   <h4 id="middle-title-2" onclick="myFunction()">Index<span class="iconify icon" data-icon="ri:arrow-drop-down-line" data-width="50"></span></h4> 
+   <ol id="myDIV">
+      {% for video in videos %}
+      <li>
+         <p align="center" class="topic-list"><a href="#{{ video.vid }}">{{ video.title }}</a></p>
+      </li>
+      {% endfor %}
+   </ol>
 
    {% for video in videos %}
       <div class="video-container" id="{{ video.vid }}">
-         <p align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video.vid }}"
+         <p align="center"><iframe loading="lazy";
+
+         srcdoc="<style>
+          * {
+          padding: 0;
+          margin: 0;
+          overflow: hidden;
+          }
+
+          body, html {
+            height: 100%;
+          }
+
+          img, svg {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+          }
+
+          svg {
+            filter: drop-shadow(1px 1px 10px hsl(206.5, 70.7%, 8%));
+            transition: all 250ms ease-in-out;
+          }
+
+          body:hover svg {
+            filter: drop-shadow(1px 1px 10px hsl(206.5, 0%, 10%));
+            transform: scale(1.2);
+          }
+        </style>
+        <a href='https://www.youtube.com/embed/{{ video.vid }}?autoplay=1'>
+          <img src='https://img.youtube.com/vi/{{ video.vid }}/hqdefault.jpg'>
+          <svg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 24 24' fill='none' stroke='#ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-play-circle'><circle cx='12' cy='12' r='10'></circle><polygon points='10 8 16 12 10 16 10 8'></polygon></svg>
+        </a>
+        "
+
+
+         width="560" height="315" src="https://www.youtube.com/embed/{{ video.vid }}"
                title="YouTube video player" frameborder="0"
                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                allowfullscreen></iframe></p>
          <p align="center" class="video-title">{{ video.title }}</p>
       </div>
    {% endfor %}
+      <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <script>
+         $(function () {
+             toggleMenu();
+     
+             function toggleMenu() {
+                 $("#middle-title-2").click(function () {
+                     $(this).children().toggleClass("rotate");
+                     $(this).next().slideToggle();
+                 });
+             }
+         });
+     </script>
 {% endblock body %}

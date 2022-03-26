@@ -6,9 +6,75 @@
   outline: none;
   box-sizing: border-box;
 }
-body{
-  background: #FCF7FF;
+
+
+/* Dark Mode */
+:root {
+  --dark-background-color: #6b5e5e;
+  --dark-background-color-alt: #222222;
+  --dark-trim-color: #333333;
+  --dark-text-color: #eeeeee;
 }
+
+body {
+  /* Light Theme */ 
+  
+  --background-color: #ffffff;
+  --background-color-alt: #eeeeee;
+  --trim-color: #dddddd;
+  --text-color: #000000;
+  
+  --primary-color: #009578;
+  color: var(--text-color);
+  font-family: var(--font-family);
+  background: var(--background-color);
+}
+
+body.theme-dark {
+  /* Dark Theme */
+  
+  --background-color: var(--dark-background-color);
+  --background-color-alt: var(--dark-background-color-alt);
+  --trim-color: var(--dark-trim-color);
+  --text-color: var(--dark-text-color);
+}
+
+@media (prefers-color-scheme: dark) {
+  body.theme-auto {
+      animation: transtionIn 0.75s;
+      --background-color: var(--dark-background-color);
+      --background-color-alt: var(--dark-background-color-alt);
+      --trim-color: var(--dark-trim-color);
+      --text-color: var(--dark-text-color);
+  }
+}
+
+.select {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 5px 8px;
+  border-radius: 10px;
+}
+
+.select__input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 0px 14px;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: var(--text-color);
+  font-weight: 500;
+  font-family: var(--font-family);
+}
+
+.select__input option {
+  color: #000000;
+}
+
+
 nav{
   background: #3B3086;
   display: flex;

@@ -30,6 +30,7 @@ font-family: 'Mulish', sans-serif;
   margin: 0 auto 100px;
   padding: 40px;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  border-radius: 5px;
 }
 .form input {
   font-family: 'Mulish', sans-serif; 
@@ -79,5 +80,4 @@ font-family: 'Mulish', sans-serif;
 body {
   background: #3B3086; /* fallback for old browsers */
   font-family: 'Mulish', sans-serif; 
-     
 }
